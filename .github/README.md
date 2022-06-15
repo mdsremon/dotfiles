@@ -80,9 +80,7 @@
    <summary><strong>Debian (and other Debian-based distributions)</strong></summary>
 
    ```sh
-    $ sudo apt install --no-install-recommends bspwm sxhkd rofi neovim alacritty viewnior \
-                     picom brightnessctl playerctl mpd mpdris2 hsetroot maim jq xclip \
-                     imagemagick xdo jgmenu
+    $ sudo apt install --no-install-recommends bspwm sxhkd rofi neovim alacritty viewnior picom brightnessctl playerctl mpd mpdris2 hsetroot maim jq xclip imagemagick xdo jgmenu
    ```
 
    > For `i3-lock` and `giph`, you need to build it from source.
@@ -90,10 +88,7 @@
    **``i3lock``**
 
    ```sh
-    $ sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev \
-                     libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev \
-                     libxcb-randr0-dev libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev \
-                     libxkbcommon-x11-dev libjpeg-dev
+    $ sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util0-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
    ```
    ```sh
     $ git clone https://github.com/Raymo111/i3lock-color.git
@@ -109,7 +104,7 @@
    **``giph``**
 
    ```sh
-    $ sudo apt install ffmpeg xdotools
+    $ sudo apt install ffmpeg xdotool
    ```
    ```sh
     $ git clone https://github.com/phisch/giph.git
@@ -137,7 +132,11 @@
    > **NOTE**: Only important fonts has been listed on the table above.
 
    ```sh
-    $ cp -r ./etc/fonts/* $HOME/.local/share/fonts
+    $ cd ~
+    $ cd dotfiles
+    $ cp -r /etc/fonts/* $HOME/.local/share/fonts
+    # If it says "No such directory" use bellow command
+    $ mkdir $HOME/.local/share/fonts && cp -r /etc/fonts/* $HOME/.local/share/fonts
    ```
 
    </details>
@@ -152,7 +151,8 @@
    > **NOTE**: Only favorite wallpapers has been listed on the table above.
 
    ```sh
-    $ mkdir -p $HOME/Pictures/walls/real && cp -r ./etc/walls/real/comfy_waves.jpg $HOME/Pictures/walls/real
+    # Always make sure your working directory is dotfiles , if not use  ($ cd ~) then ($ cd dotfiles) , then use bellow command.
+    $ mkdir -p $HOME/Pictures/walls/real && cp -r /etc/walls/real/comfy_waves.jpg $HOME/Pictures/walls/real
    ```
 
    </details>
@@ -163,6 +163,7 @@
    - `rsync` method <kbd>**RECOMMENDED**</kbd>
 
       ```sh
+       # Always make sure your working directory is dotfiles , if not use  ($ cd ~) then ($ cd dotfiles) , then use bellow command.
        $ mkdir -p $HOME/.config/ && rsync -avxHAXP cfg/ $HOME/.config
        $ mkdir -p $HOME/.local/bin/ && rsync -avxHAXP --exclude 'bin/usr/' bin/ $HOME/.local/bin/
 
@@ -186,8 +187,9 @@
    - `cp` method
 
       ```sh
-       $ mkdir -p $HOME/.config/ && cp -r ./cfg/* $HOME/.config/
-       $ mkdir -p $HOME/.local/bin/ && cp -r ./bin/* $HOME/.local/bin/
+       # Always make sure your working directory is dotfiles , if not use  ($ cd ~) then ($ cd dotfiles) , then use bellow command.
+       $ mkdir -p $HOME/.config/ && cp -r /cfg/* $HOME/.config/
+       $ mkdir -p $HOME/.local/bin/ && cp -r /bin/* $HOME/.local/bin/
 
        # To make tabbed and chwb2 to work, you must move it to /usr/local/bin.
        $ sudo mv $HOME/.local/bin/usr/* /usr/local/bin/
